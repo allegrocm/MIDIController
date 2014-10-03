@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD8B028719D507BD003D2AA5 /* pmmac.c in Sources */ = {isa = PBXBuildFile; fileRef = AD8B027319D507BD003D2AA5 /* pmmac.c */; };
+		AD8B028819D507BD003D2AA5 /* pmmacosxcm.c in Sources */ = {isa = PBXBuildFile; fileRef = AD8B027519D507BD003D2AA5 /* pmmacosxcm.c */; };
+		AD8B028919D507BD003D2AA5 /* ptmacosx_cf.c in Sources */ = {isa = PBXBuildFile; fileRef = AD8B027719D507BD003D2AA5 /* ptmacosx_cf.c */; };
+		AD8B028B19D507BD003D2AA5 /* pmutil.c in Sources */ = {isa = PBXBuildFile; fileRef = AD8B027A19D507BD003D2AA5 /* pmutil.c */; };
+		AD8B028C19D507BD003D2AA5 /* portmidi.c in Sources */ = {isa = PBXBuildFile; fileRef = AD8B027C19D507BD003D2AA5 /* portmidi.c */; };
+		AD8B029119D50812003D2AA5 /* KKPM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD8B028F19D50812003D2AA5 /* KKPM.cpp */; };
+		AD8B029319D508A1003D2AA5 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8B029219D508A1003D2AA5 /* CoreAudio.framework */; };
+		ADCB9F7C19BA1A7900482FD2 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCB9F7B19BA1A7900482FD2 /* CoreMIDI.framework */; };
+		ADF3C8CB19B96D6000101E95 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF3C8CA19B96D6000101E95 /* Cocoa.framework */; };
+		ADF3C90019B96DD900101E95 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C8FF19B96DD900101E95 /* main.cpp */; };
+		ADF3C90419B986E800101E95 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF3C90319B986E800101E95 /* GLUT.framework */; };
+		ADF3C90619B986EE00101E95 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF3C90519B986EE00101E95 /* OpenGL.framework */; };
+		ADF3C90919B9897700101E95 /* KensMIDIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C90819B9897700101E95 /* KensMIDIController.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ADCB9F7919B9A8A000482FD2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AD8B027319D507BD003D2AA5 /* pmmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pmmac.c; sourceTree = "<group>"; };
+		AD8B027419D507BD003D2AA5 /* pmmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pmmac.h; sourceTree = "<group>"; };
+		AD8B027519D507BD003D2AA5 /* pmmacosxcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pmmacosxcm.c; sourceTree = "<group>"; };
+		AD8B027619D507BD003D2AA5 /* pmmacosxcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pmmacosxcm.h; sourceTree = "<group>"; };
+		AD8B027719D507BD003D2AA5 /* ptmacosx_cf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ptmacosx_cf.c; sourceTree = "<group>"; };
+		AD8B027919D507BD003D2AA5 /* pminternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pminternal.h; sourceTree = "<group>"; };
+		AD8B027A19D507BD003D2AA5 /* pmutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pmutil.c; sourceTree = "<group>"; };
+		AD8B027B19D507BD003D2AA5 /* pmutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pmutil.h; sourceTree = "<group>"; };
+		AD8B027C19D507BD003D2AA5 /* portmidi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = portmidi.c; sourceTree = "<group>"; };
+		AD8B027D19D507BD003D2AA5 /* portmidi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = portmidi.h; sourceTree = "<group>"; };
+		AD8B027E19D507BD003D2AA5 /* porttime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = porttime.h; sourceTree = "<group>"; };
+		AD8B028F19D50812003D2AA5 /* KKPM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KKPM.cpp; sourceTree = "<group>"; };
+		AD8B029019D50812003D2AA5 /* KKPM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPM.h; sourceTree = "<group>"; };
+		AD8B029219D508A1003D2AA5 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = ../../../../System/Library/Frameworks/CoreAudio.framework; sourceTree = "<group>"; };
+		ADCB9F7B19BA1A7900482FD2 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreMIDI.framework; sourceTree = DEVELOPER_DIR; };
+		ADF3C8C719B96D6000101E95 /* Sliders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sliders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF3C8CA19B96D6000101E95 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ADF3C8CD19B96D6000101E95 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ADF3C8CE19B96D6000101E95 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ADF3C8CF19B96D6000101E95 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ADF3C8F019B96D6000101E95 /* SlidersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SlidersTests-Info.plist"; sourceTree = "<group>"; };
+		ADF3C8F219B96D6000101E95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ADF3C8F419B96D6000101E95 /* SlidersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlidersTests.m; sourceTree = "<group>"; };
+		ADF3C8FF19B96DD900101E95 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = main.cpp; sourceTree = "<group>"; };
+		ADF3C90319B986E800101E95 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
+		ADF3C90519B986EE00101E95 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+		ADF3C90719B9897700101E95 /* KensMIDIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KensMIDIController.h; sourceTree = "<group>"; };
+		ADF3C90819B9897700101E95 /* KensMIDIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KensMIDIController.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADF3C8C419B96D6000101E95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADF3C90419B986E800101E95 /* GLUT.framework in Frameworks */,
+				ADF3C8CB19B96D6000101E95 /* Cocoa.framework in Frameworks */,
+				ADF3C90619B986EE00101E95 /* OpenGL.framework in Frameworks */,
+				AD8B029319D508A1003D2AA5 /* CoreAudio.framework in Frameworks */,
+				ADCB9F7C19BA1A7900482FD2 /* CoreMIDI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD8B026A19D507BD003D2AA5 /* PortMidi */ = {
+			isa = PBXGroup;
+			children = (
+				AD8B028F19D50812003D2AA5 /* KKPM.cpp */,
+				AD8B029019D50812003D2AA5 /* KKPM.h */,
+				AD8B027219D507BD003D2AA5 /* mac */,
+				AD8B027919D507BD003D2AA5 /* pminternal.h */,
+				AD8B027A19D507BD003D2AA5 /* pmutil.c */,
+				AD8B027B19D507BD003D2AA5 /* pmutil.h */,
+				AD8B027C19D507BD003D2AA5 /* portmidi.c */,
+				AD8B027D19D507BD003D2AA5 /* portmidi.h */,
+				AD8B027E19D507BD003D2AA5 /* porttime.h */,
+			);
+			name = PortMidi;
+			path = src/PortMidi;
+			sourceTree = "<group>";
+		};
+		AD8B027219D507BD003D2AA5 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				AD8B027319D507BD003D2AA5 /* pmmac.c */,
+				AD8B027419D507BD003D2AA5 /* pmmac.h */,
+				AD8B027519D507BD003D2AA5 /* pmmacosxcm.c */,
+				AD8B027619D507BD003D2AA5 /* pmmacosxcm.h */,
+				AD8B027719D507BD003D2AA5 /* ptmacosx_cf.c */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		ADF3C8BE19B96D6000101E95 = {
+			isa = PBXGroup;
+			children = (
+				AD8B026A19D507BD003D2AA5 /* PortMidi */,
+				ADCB9F7B19BA1A7900482FD2 /* CoreMIDI.framework */,
+				ADF3C90519B986EE00101E95 /* OpenGL.framework */,
+				ADF3C90319B986E800101E95 /* GLUT.framework */,
+				ADF3C8FE19B96D8A00101E95 /* src */,
+				ADF3C8EE19B96D6000101E95 /* SlidersTests */,
+				ADF3C8C919B96D6000101E95 /* Frameworks */,
+				ADF3C8C819B96D6000101E95 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADF3C8C819B96D6000101E95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C8C719B96D6000101E95 /* Sliders.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADF3C8C919B96D6000101E95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD8B029219D508A1003D2AA5 /* CoreAudio.framework */,
+				ADF3C8CA19B96D6000101E95 /* Cocoa.framework */,
+				ADF3C8CC19B96D6000101E95 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADF3C8CC19B96D6000101E95 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C8CD19B96D6000101E95 /* AppKit.framework */,
+				ADF3C8CE19B96D6000101E95 /* CoreData.framework */,
+				ADF3C8CF19B96D6000101E95 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ADF3C8EE19B96D6000101E95 /* SlidersTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C8F419B96D6000101E95 /* SlidersTests.m */,
+				ADF3C8EF19B96D6000101E95 /* Supporting Files */,
+			);
+			path = SlidersTests;
+			sourceTree = "<group>";
+		};
+		ADF3C8EF19B96D6000101E95 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C8F019B96D6000101E95 /* SlidersTests-Info.plist */,
+				ADF3C8F119B96D6000101E95 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADF3C8FE19B96D8A00101E95 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C90719B9897700101E95 /* KensMIDIController.h */,
+				ADF3C90819B9897700101E95 /* KensMIDIController.cpp */,
+				ADF3C8FF19B96DD900101E95 /* main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADF3C8C619B96D6000101E95 /* Sliders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADF3C8F819B96D6000101E95 /* Build configuration list for PBXNativeTarget "Sliders" */;
+			buildPhases = (
+				ADF3C8C319B96D6000101E95 /* Sources */,
+				ADF3C8C419B96D6000101E95 /* Frameworks */,
+				ADF3C8C519B96D6000101E95 /* Resources */,
+				ADCB9F7919B9A8A000482FD2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sliders;
+			productName = Sliders;
+			productReference = ADF3C8C719B96D6000101E95 /* Sliders.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADF3C8BF19B96D6000101E95 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Ken Kopecky II";
+			};
+			buildConfigurationList = ADF3C8C219B96D6000101E95 /* Build configuration list for PBXProject "Sliders" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADF3C8BE19B96D6000101E95;
+			productRefGroup = ADF3C8C819B96D6000101E95 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADF3C8C619B96D6000101E95 /* Sliders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ADF3C8C519B96D6000101E95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADF3C8C319B96D6000101E95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADF3C90019B96DD900101E95 /* main.cpp in Sources */,
+				AD8B028C19D507BD003D2AA5 /* portmidi.c in Sources */,
+				ADF3C90919B9897700101E95 /* KensMIDIController.cpp in Sources */,
+				AD8B028819D507BD003D2AA5 /* pmmacosxcm.c in Sources */,
+				AD8B029119D50812003D2AA5 /* KKPM.cpp in Sources */,
+				AD8B028719D507BD003D2AA5 /* pmmac.c in Sources */,
+				AD8B028919D507BD003D2AA5 /* ptmacosx_cf.c in Sources */,
+				AD8B028B19D507BD003D2AA5 /* pmutil.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ADF3C8F119B96D6000101E95 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADF3C8F219B96D6000101E95 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ADF3C8F619B96D6000101E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ADF3C8F719B96D6000101E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ADF3C8F919B96D6000101E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				INFOPLIST_FILE = "Sliders-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ADF3C8FA19B96D6000101E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				INFOPLIST_FILE = "Sliders-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADF3C8C219B96D6000101E95 /* Build configuration list for PBXProject "Sliders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADF3C8F619B96D6000101E95 /* Debug */,
+				ADF3C8F719B96D6000101E95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADF3C8F819B96D6000101E95 /* Build configuration list for PBXNativeTarget "Sliders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADF3C8F919B96D6000101E95 /* Debug */,
+				ADF3C8FA19B96D6000101E95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADF3C8BF19B96D6000101E95 /* Project object */;
+}
