@@ -4,10 +4,11 @@
 //
 //  Created by Ken Kopecky II on 9/25/14.
 //
-//
+//	interface for the bits of PortMidi that we need to use
 
 #ifndef __pm_mac__KKPM__
 #define __pm_mac__KKPM__
+
 
 
 

@@ -17,6 +17,14 @@ MIDIControl::MIDIControl()
 		mMValues[i] = 0;
 	}
 	memset(extraButtons, 0, sizeof(extraButtons));
+	autowrite = false;
+	filename = "";
+}
+
+void MIDIControl::saveAtExit()
+{
+	__gMIDIControl.autowrite = true;
+
 }
 
 void MIDIControl::init()
@@ -179,8 +187,6 @@ bool MIDIControl::writeSavedState(std::string filename)
 	for(int i = 0; i < NUM_DIALS; i++)
 		fprintf(f, "%.3f ", dial(i));
 	
-
-	
 	fclose(f);
 	
 	return true;
@@ -189,6 +195,7 @@ bool MIDIControl::writeSavedState(std::string filename)
 
 bool MIDIControl::readSavedState(std::string filename)
 {
+	__gMIDIControl.filename = filename;
 	//just write all our values.  not buttons though.  we don't keep those
 	FILE* f = fopen(filename.c_str(), "r");
 	if(!f) return false;
@@ -198,7 +205,7 @@ bool MIDIControl::readSavedState(std::string filename)
 
 	for(int i = 0; i < NUM_DIALS; i++)
 		fscanf(f, "%f ", &__gMIDIControl.mDialValues[i]);
-
+	
 	
 	fclose(f);
 	

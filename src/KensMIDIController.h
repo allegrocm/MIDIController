@@ -16,7 +16,7 @@ public:
 	enum ButtonState {OFF, ON, TOGGLE_OFF, TOGGLE_ON};
 
 	MIDIControl();
-	~MIDIControl()	{printData();}
+	~MIDIControl()	{printData(); if(autowrite && filename != "") writeSavedState(filename);}
 	static std::string getDeviceName();
 	
 	//as far as I can tell, MIDI doesn't have a state.  Just events.
@@ -26,6 +26,7 @@ public:
 	
 
 	static bool readSavedState(std::string fileName);
+	static void saveAtExit();		//sets MIDIControl to write out its data at exit to the file it read it from
 	static bool writeSavedState(std::string fileName);
 	
 	static bool active();
@@ -94,6 +95,11 @@ public:
 
 	//called internally
 	void _updateFromMidiSignal(unsigned char control, unsigned char value);
+
+	//for auto-write
+	private:
+	bool autowrite;		//should we write our variables to disk when we're done?
+	std::string filename;		//the file we loaded at the start
 
 };
 #endif

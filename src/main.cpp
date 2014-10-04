@@ -1,3 +1,43 @@
+/*
+Sample code for Ken's Midi mixer interface.  This app uses GLUT for windowing, and just takes the slider and dial values from
+the Midi board and uses them to draw cubes on the screen.  Pretty boring, but it shows how to use KensMIDIController,
+and that's the point.
+
+As a summary, here's the important parts:
+
+Sometime at startup:
+	
+	std::string saveFileName = "/tmp/KenMidiInfo";
+	MIDIControl::readSavedState(saveFileName);			//because I can't "ask" the slider where it is, we remember the mixer's last state
+	MIDIControl::saveAtExit();
+	
+once a frame/update/cycle
+	(check and handle button presses, sliders, dials, etc)
+	
+	if(MIDIControll::active())
+	{
+		float f = MIDIControll::slider(0);
+		unsigned int FFButtonState = MIDIControl::fastForward();
+
+		if(FFButtonState == MIDIControll::TOGGLE_ON) //do something cuz the button was pressed
+
+		MIDIControl::detoggle();	//change "toggle on/off" button states to regular on/off steady states
+	}
+	
+	
+and that's it!  Enjoy!
+
+Ken
+
+*/
+
+
+
+
+
+
+
+
 #ifdef __APPLE__
 #include <OpenGL/GL.h>
 #include <OpenGL/glu.h>
@@ -19,7 +59,7 @@
 
 #include "KensMIDIController.h"
 
-
+//variables to do things with
 float aspect = 1.333;
 int screenHeight = 768;
 int screenWidth = 1024;
@@ -30,112 +70,13 @@ float gAngle[] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 
 
-//this is a freakin handy little function to draw GLUT text on the screen
-void drawCenteredStringOnScreen(int x, int y, const char* format, ...)
-{
-	char stringData[1024];
-	va_list args;
-	va_start(args, format);
-	vsprintf(stringData, format, args);
-	glViewport(0, 0, screenWidth, screenHeight);
-	glPushMatrix();
-		glLoadIdentity();
-		glMatrixMode(GL_PROJECTION);
-		glPushMatrix();
-			glLoadIdentity();
-			glOrtho(0, screenWidth, 0, screenHeight, -1, 1);
-
-			glDisable(GL_LIGHTING);
-			glDisable(GL_TEXTURE_2D);
-			float length = glutBitmapLength(GLUT_BITMAP_HELVETICA_18, (const unsigned char*)stringData);
-			glRasterPos3i(x-length/2, screenHeight - y, 0);
-			for( int i=0; i<1024 && stringData[i] != 0; i++ )
-				glutBitmapCharacter( GLUT_BITMAP_HELVETICA_18, stringData[i] );
-			glEnable(GL_LIGHTING);
-		glPopMatrix();
-		glMatrixMode(GL_MODELVIEW);
-	glPopMatrix();
+//helper functions
+void drawCenteredStringOnScreen(int x, int y, const char* format, ...);
+void drawStringOnScreen(int x, int y, const char* format, ...);
+void setLight(float x, float y, float z);
 
 
-}
-
-//this is a freakin handy little function to draw GLUT text on the screen
-void drawStringOnScreen(int x, int y, const char* format, ...)
-{
-	char stringData[1024];
-	va_list args;
-	va_start(args, format);
-	vsprintf(stringData, format, args);
-	glViewport(0, 0, screenWidth, screenHeight);
-	glPushMatrix();
-		glLoadIdentity();
-		glMatrixMode(GL_PROJECTION);
-		glPushMatrix();
-			glLoadIdentity();
-			glOrtho(0, screenWidth, 0, screenHeight, -1, 1);
-
-			glDisable(GL_LIGHTING);
-			glDisable(GL_TEXTURE_2D);
-			glRasterPos3i(x, screenHeight - y, 0);
-			for( int i=0; i<1024 && stringData[i] != 0; i++ )
-				glutBitmapCharacter( GLUT_BITMAP_HELVETICA_18, stringData[i] );
-			glEnable(GL_LIGHTING);
-		glPopMatrix();
-		glMatrixMode(GL_MODELVIEW);
-	glPopMatrix();
-
-
-}
-
-
-void drawFrameRate()
-{
-		glColor3f(1,1,1);
-		static float t=0;
-		static float fps=2;
-		static float deltat=.2;
-		static int reps=0;
-		float tnow=glutGet(GLUT_ELAPSED_TIME);
-		reps++;
-
-		if(tnow - t > 500)		//update every 500 ms
-		{
-			deltat=tnow-t;
-			t=tnow;
-			fps=1.f * reps/deltat*1000;
-			reps = 0;
-		}
-		drawStringOnScreen(20, 20, "Frame Rate:  %.2f", fps);
-		
-}
-
-void setLight(float x, float y, float z)
-{
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	float lightPosition[] = {x, y, z, 1};
-	glLightfv (GL_LIGHT0, GL_POSITION, lightPosition);
-}
-
-
-void setupGL()
-{
-	//set up our OpenGL state so we can draw some cubes
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(60, aspect, 0.2, 200.0);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	gluLookAt(0, 0, 20, 0, 0, 0, 0, 1, 0);
-	
-	glEnable(GL_COLOR_MATERIAL);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_NORMALIZE);
-
-	setLight(100, 100, 50);
-
-}
+void setupGL();
 
 void display()
 {
@@ -146,13 +87,16 @@ void display()
 	int thisTime = glutGet(GLUT_ELAPSED_TIME);
 	float dt = 0.001 * ((float) thisTime - lastTime);
 	lastTime = thisTime;
+	
+	//draw some help text
 	if(MIDIControl::active())
 		drawCenteredStringOnScreen(screenWidth/2, screenHeight*0.3 - 20, "Detected MIDI device:  %s", MIDIControl::getDeviceName().c_str());
 	else
-			drawCenteredStringOnScreen(screenWidth/2, screenHeight*0.3 - 20, "No MIDI device found.  Plug it in and restart the app.");
-	drawCenteredStringOnScreen(screenWidth/2, screenHeight*0.3,
-		"Use the dials on your MIDI device to control speed and sliders to control height");
+		drawCenteredStringOnScreen(screenWidth/2, screenHeight*0.3 - 20, "No MIDI device found.  Plug it in and restart the app.");
+			drawCenteredStringOnScreen(screenWidth/2, screenHeight*0.3,
+			"Use the dials on your MIDI device to control speed and sliders to control height");
 	
+	//draw eight cubes.  move and spin them based on signals from the MIDI mixer
 	for(int i = 0; i < 8; i++)
 	{
 		float separation = 4;
@@ -219,7 +163,6 @@ void display()
 
 
 	MIDIControl::detoggle();		//call this to
-	drawFrameRate();
 #undef setColor		//don't need this anymore
 	glutSwapBuffers();
 }
@@ -280,16 +223,19 @@ std::string saveFileName =
 	"/tmp/KKMidiValues";
 #endif
 
-void writeMIDIValues()
-{
-	bool b = MIDIControl::writeSavedState(saveFileName);
-	printf("Write:  %i\n", b);
-}
 
 int main(int argc, char *argv[])
 {
-	atexit(writeMIDIValues);
+	//load the last used MIDI controller data
+	//this is necessary because MIDI is stateless, so the state of a slider can't be
+	//polled, just recorded when it happens
+	//reading and writing the state allows us to remember slider values between launches
 
+	bool b = MIDIControl::readSavedState(saveFileName);
+	printf("read:  %i\n", b);
+	//tell MIDIControl to automatically write its data at exit.
+	//otherwise it can be done manually
+	MIDIControl::saveAtExit();
   
 	printf("\n\nStarting GLUT loop....\n");
 	glutInit(&argc, argv);
@@ -302,15 +248,96 @@ int main(int argc, char *argv[])
 	glutTimerFunc(0, timer, 0);
 	glutDisplayFunc(display);
 	setupGL();
-	
 
 
-	bool b = MIDIControl::readSavedState(saveFileName);
-	printf("read:  %i\n", b);
 
 	glutMainLoop();
 	return 0;
 
   //set up a virtual device
+}
+
+
+//some function bodies
+void drawCenteredStringOnScreen(int x, int y, const char* format, ...)
+{
+	char stringData[1024];
+	va_list args;
+	va_start(args, format);
+	vsprintf(stringData, format, args);
+	glViewport(0, 0, screenWidth, screenHeight);
+	glPushMatrix();
+		glLoadIdentity();
+		glMatrixMode(GL_PROJECTION);
+		glPushMatrix();
+			glLoadIdentity();
+			glOrtho(0, screenWidth, 0, screenHeight, -1, 1);
+
+			glDisable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
+			float length = glutBitmapLength(GLUT_BITMAP_HELVETICA_18, (const unsigned char*)stringData);
+			glRasterPos3i(x-length/2, screenHeight - y, 0);
+			for( int i=0; i<1024 && stringData[i] != 0; i++ )
+				glutBitmapCharacter( GLUT_BITMAP_HELVETICA_18, stringData[i] );
+			glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+
+
+}
+
+void drawStringOnScreen(int x, int y, const char* format, ...)
+{
+	char stringData[1024];
+	va_list args;
+	va_start(args, format);
+	vsprintf(stringData, format, args);
+	glViewport(0, 0, screenWidth, screenHeight);
+	glPushMatrix();
+		glLoadIdentity();
+		glMatrixMode(GL_PROJECTION);
+		glPushMatrix();
+			glLoadIdentity();
+			glOrtho(0, screenWidth, 0, screenHeight, -1, 1);
+
+			glDisable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
+			glRasterPos3i(x, screenHeight - y, 0);
+			for( int i=0; i<1024 && stringData[i] != 0; i++ )
+				glutBitmapCharacter( GLUT_BITMAP_HELVETICA_18, stringData[i] );
+			glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+
+
+}
+
+void setLight(float x, float y, float z)
+{
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	float lightPosition[] = {x, y, z, 1};
+	glLightfv (GL_LIGHT0, GL_POSITION, lightPosition);
+}
+
+void setupGL()
+{
+	//set up our OpenGL state so we can draw some cubes
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(60, aspect, 0.2, 200.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(0, 0, 20, 0, 0, 0, 0, 1, 0);
+	
+	glEnable(GL_COLOR_MATERIAL);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_NORMALIZE);
+
+	setLight(100, 100, 50);
+
 }
 
